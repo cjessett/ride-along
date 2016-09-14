@@ -8,7 +8,7 @@
 
 ## Project Description
 
-This API is used in conjunction with [Ride-Along-UI](https://github.com/TomHoDev/ride-along-ui) to connect users to carpool. 
+This API is serving json the React UI at [Ride-Along-UI](https://github.com/cjessett/ride-along-ui). 
 
 Users can post rides that they provide or join a ride that is near them. 
 
@@ -42,7 +42,7 @@ Start the server
 You can build your own front end that uses the api. 
 Endpoint examples to come...
 
-Pull down the font end UI. [Ride-Along-UI](https://github.com/TomHoDev/ride-along-ui)
+Pull down the font end UI. [Ride-Along-UI](https://github.com/cjessett/ride-along-ui)
 
 ###Coming Features
 Improve ride searching function by adding geolocation

@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  include ActionController::Serialization
+  # before_filter :authenticate_request!
 
   def index
     @trips = Trip.all
@@ -7,9 +7,13 @@ class TripsController < ApplicationController
   end
 
   def available
-    user =  User.find(params[:user_id])
-    @trips = Trip.all - user.trips - user.rides
-    render json: @trips
+    @user =  User.find(1)
+    @matches = @user.matches
+  end
+
+  def drives
+    @user = User.find(1)
+    @drives = @user.trips.includes(:riders, :requests)
   end
 
   def show
@@ -19,7 +23,10 @@ class TripsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    @trip = user.trips.new(driver_id: user.id, departure_time: params[:departure_time], arrival_time: params[:arrival_time] )
+    @trip = user.trips.new(driver_id: user.id,
+                           departure_time: params[:departure_time],
+                           arrival_time: params[:arrival_time]
+                          )
     if @trip.save
       render json: @trip, status: :created
     else
@@ -28,11 +35,8 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find(params[:trip_id])
-    rider = User.find(params[:user_id])
-    trip.riders << rider
-    trip.save
-
+    trip = Trip.includes(:riders).find(params[:id])
+    trip.riders.delete(params[:user_id])
   end
 
   def destroy

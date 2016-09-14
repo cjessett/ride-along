@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   before_action :set_user, only: [:show, :update, :trips]
+=======
+  # before_filter :authenticate_request!, except: [:create]
+  before_action :set_user, only: [:show, :update, :trips, :destroy]
+>>>>>>> 4545c1534ea1b8ea442259e941b640b4b48c8d5f
 
   def trips
-    @trips = @user.trips
-    render json: @trips, include: ['riders']
+    trips = Trip.where(driver: @user).includes(:requests)
+    render json: trips.as_json(include: [:requests])
   end
 
   def show
@@ -31,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    @user.destroy
     head 204
   end
 

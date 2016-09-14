@@ -25,3 +25,13 @@ trip3.riders = [tj, jess]
 trip4.riders = [tj, jess]
 trip5.riders = [jay]
 trip6.riders = [jay]
+
+r0 = trip4.requests.create(user_id: 1, pending: true)
+r1 = trip4.requests.create(user_id: 2, pending: true)
+r2 = trip4.requests.create(user_id: 4, pending: true)
+r3 = trip4.requests.create(user_id: 5, pending: true)
+
+p1 = tom.places.create(street: "1705 Guadalupe St", city: "Austin", state: "TX")
+p2 = cj.places.create(street: "11000 Anderson Mill Rd", city: "Austin", state: "TX")
+p3 = kim.places.create(street: "2606 Guadalupe St", city: "Austin", state: "TX")
+

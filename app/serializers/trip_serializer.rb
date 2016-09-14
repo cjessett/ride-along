@@ -1,28 +1,9 @@
 class TripSerializer < ActiveModel::Serializer
+<<<<<<< HEAD
   attributes :id, :departure, :arrival, :driver, :email, :rating, :count, :riders
+=======
+  attributes :id, :departure, :arrival
+>>>>>>> 4545c1534ea1b8ea442259e941b640b4b48c8d5f
 
-  def driver
-    object.driver.name
-  end
-
-  def rating
-    "%0.1f" % rand(3.5..4.8)
-  end
-
-  def email
-    object.driver.email
-  end
-
-  def count
-    object.riders.count
-  end
-
-  def departure
-    object.departure_time.strftime("%l:%M %p")
-  end
-
-  def arrival
-    object.arrival_time.strftime("%l:%M %p")
-  end
 
 end

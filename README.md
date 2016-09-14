@@ -8,7 +8,7 @@
 
 ## Project Description
 
-This API is serving json the React UI at [Ride-Along-UI](https://github.com/cjessett/ride-along-ui). 
+This API is serving json to the React UI at [Ride-Along-UI](https://github.com/cjessett/ride-along-ui). 
 
 Users can post rides that they provide or join a ride that is near them. 
 

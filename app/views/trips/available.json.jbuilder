@@ -1,8 +1,8 @@
 json.array! @matches do |match|
 
   json.id match.id
-  json.departure match.departure
-  json.arrival match.arrival
+  json.departure match.departure_time.iso8601
+  json.arrival match.arrival_time.iso8601
   json.count match.count
 
   json.driver do

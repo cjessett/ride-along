@@ -1,8 +1,8 @@
 json.array! @drives do |drive|
 
   json.id drive.id
-  json.departure drive.departure
-  json.arrival drive.arrival
+  json.departure drive.departure_time.iso8601
+  json.arrival drive.arrival_time.iso8601
 
   json.riders do
     json.array! drive.riders do |rider|

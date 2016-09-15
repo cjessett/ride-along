@@ -22,11 +22,9 @@ class TripsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
-    @trip = user.trips.new(driver_id: user.id,
-                           departure_time: params[:departure_time],
-                           arrival_time: params[:arrival_time]
-                          )
+    user = User.find(1)
+    @trip = user.trips.new(departure_time: params[:departure_time],
+                           arrival_time: params[:arrival_time])
     if @trip.save
       render json: @trip, status: :created
     else
